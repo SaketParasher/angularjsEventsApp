@@ -1,0 +1,38 @@
+
+/**************************************** Filters :- 
+
+--> Builtin Filters:-
+
+1) uppercase , lowercase used with strings
+2) number :- to format number can be used as number:2 to get number after 2 decimal places
+3) currency :- to formate currency
+4) date :- to format the original javascript date. date:'mediumDate'.
+5) json :- used to print objects in json format only. 
+6) orderBy  :- used with ng-repeat to sort the results in ascending order a/c to param passed. eg. orderBy:sortOrder.
+               where sortOrder may be any param of repeated items. To sort in descending order put - in front of param value.
+7) limitTo  :- filter is used with ng-repeat to limit the number of items in ng-repeat. eg. limitTo:2 will limit the results number to 2.
+8) filter   :- filter filter is used to filter the result. By default angular will search the value of items in ng-repeat
+                to match the query if not explicitly specified.If specified it will search for that property of items.
+
+--> Custom Filter :-
+
+    eventsApp.filter('filterName',function(){
+        return function(args){
+            // filtering logic and return goes here.
+        }
+    })
+
+--> ng-touched class applies to form-field if we have focusedin and then focusedout of it.
+--> ng-pristine class applies to a field if its value is not changed even once.
+--> ng-dirty class gets applied if form field value is modified.
+--> ng-valid and ng-invalid if form field is valid or invalid.
+
+
+/*************************************   SERVICES  ***********************/
+
+--> A service is just a worker object that performs some sort of business logic.
+--> Services allow you to encapsulate Reusable business logic into an object that can be shared and reused throughout the application.
+--> Services also helps in bringing modularity into app. Single Responsibility Principle.states that an object should only have a Single
+    responsibility.
+--> Services can be injected to controllers and other services that need them.This helps in having access to the functionality when u need 
+    them.
