@@ -28,7 +28,7 @@
 --> ng-valid and ng-invalid if form field is valid or invalid.
 
 
-/*************************************   SERVICES  ***********************/
+/*********************************************************************************   SERVICES   **************************************************************************************************/
 
 --> A service is just a worker object that performs some sort of business logic.
 --> Services allow you to encapsulate Reusable business logic into an object that can be shared and reused throughout the application.
@@ -36,3 +36,15 @@
     responsibility.
 --> Services can be injected to controllers and other services that need them.This helps in having access to the functionality when u need 
     them.
+
+
+--> $resource service functionality is used for same sort as of $http but it is based on restful artitecture. It assumes that your web server is using rest based artitecture.
+--> $resource is in a different module ie. ngResource module so to use $resource we need to add ngResource module in our app.js in dependency array and then we also need to include
+    angular.resource.js in html file.
+--> $resource doesn't returns a promise but it contains $promise property which we can use as promise by calling then on that property.
+--> $resource('/data/:id',{id:'@id'}).get({id:1})   :- get() {method:'GET'}
+--> $resource('/data/:id',{id:'@id'}).save(event)   :- save() {method:'POST'} is used to post the data ie. in this case data is event.
+--> $resource('/data/:id',{id:'@id'}).query({id:1}) :- {method: 'GET', isArray: true} same as get but it expects an array to be returned.
+
+
+/*********************************************************************************   ROUTING   **************************************************************************************************/
