@@ -47,4 +47,27 @@
 --> $resource('/data/:id',{id:'@id'}).query({id:1}) :- {method: 'GET', isArray: true} same as get but it expects an array to be returned.
 
 
-/*********************************************************************************   ROUTING   **************************************************************************************************/
+/**************************************************************   ROUTING   **************************************************************************************************/
+
+--> ng-view element is used in index page where all templates gets rendered a/c to routes configured in config block.
+--> config block can be added to each module which contains all configuration and routing for that module.
+    config block gets trigger at time of bootstraping that module.
+
+--> Routing is provided using $routeProvider service which is in ngRoute module which we need to import as module dependency.
+--> $routeProvider.when() is used to config routes and then mention the templateUrl and controller for that route.
+    $routeProvider.otherwise() is used to redirectTo some other config route if request URL do not matches any.
+--> $routeParams service is used to get any value from url and then pass it to other functions.
+
+--> $route service allows us to access various things about route such as custom properties, pathParams and queryString.
+    $route.current.propertyName is used to access the custom route property. Custom route property is set on route while configuring
+    route using when.
+    To access the queryString we use $route.current.params.propertyName.
+
+    $route.current.propertyName is used to access the property on route.
+    $route.current.params.propertyName is used to access properties from both queryString and route params whereas
+    $route.current.pathParams.propertyName can be used only to access route params not params from queryString.
+    $route.reload() is used to reload the view without reloading the whole page.
+
+--> $locationProvider service is used to enable the HTML5 routing. ie. in config block we need to add 
+    $locationProvider.html5Mode(true)
+    Then we also need to add <base href="/" /> in head of index.html

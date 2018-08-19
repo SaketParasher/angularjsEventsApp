@@ -70,8 +70,8 @@ app.post('/data/:id',(req,res) =>{
 
 
 
-app.get('/',(req,res) => {
-    res.sendFile(path.join(rootpath+'/app/js/views/Eventdetails.html'));
+app.get('*',(req,res) => {
+    res.sendFile(path.join(rootpath+'/app/js/views/index.html'));
 })
 
 app.listen(4000);

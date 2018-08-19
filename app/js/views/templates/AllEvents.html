@@ -1,0 +1,102 @@
+
+    <main>
+        <div class="columns is-mobile">
+            
+            <div class="column" ng-repeat="event in events">
+                <a href="events/{{event.id}}"> 
+                    <div class="box">
+                    <article class="media">
+                      <div class="media-left">
+                        <figure class="image is-64x64">
+                          <img ng-src="{{event.imageUrl}}" alt="Image">
+                        </figure>
+                      </div>
+                      <div class="media-content">
+                        <div class="content">
+                          <p>
+                            <strong>{{event.name}}</strong> <small>{{event.location.address}},{{event.location.province}}</small> <small></small>
+                            <br>
+                            </p>
+                            <p>
+                              Lorem ipsum dolor sit when afsh owmxtw kxkuwq sk 
+                              {{event.date}},{{event.time}}
+                            </p>
+                        </div>
+                        <nav class="level is-mobile">
+                          <div class="level-left">
+                            
+                            <a class="level-item" aria-label="like" onclick="$(this).toggleClass('active')" ng-click="viewSession($event)">
+                              <span class="sessionspan">View Sessions</span>
+                              <span class="icon is-small" style="margin-left: 4px">
+                                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                              </span>
+                            </a>
+                          </div>
+                        </nav>
+                      </div>
+                    </article>
+                    </div>
+                
+                <div class="card">
+                  <div class="sortfilterWrapper">
+                    <div class="sorting">
+                        <h4>OrderBy: </h4>
+                        <div class="input-group mb-3">
+                            
+                            <select class="custom-select" id="inputGroupSelect01" ng-model="sortOrder">
+                              <option selected value="name">Name</option>
+                              <option value="-upVoteCount">Votes</option>
+                              
+                            </select>
+                          </div>
+                    </div>
+                    <div class="filtering">
+                        <h4>FilterBy: </h4>
+                        <div class="input-group mb-3">
+                            
+                            <select class="custom-select" id="inputGroupSelect01" ng-model="query.level">
+                              <option selected value="">All</option>
+                              <option value="Introductory">Introductory</option>
+                              <option value="Intermediate">Intermediate</option>
+                              <option value="Advanced">Advanced</option>
+                            </select>
+
+                          </div>
+                    </div>
+
+                  </div>
+                    
+                
+                <div class="card-content shadow bottom" ng-repeat="session in event.sessions | orderBy:sortOrder | filter:query">
+                  <div class="media">
+                    
+                    <div class="media-content">
+                      <p class="title is-4">{{session.name}}</p>
+                      <p class="subtitle is-6">{{session.creatorName}}</p>
+                      <p class="subtitle is-6">{{session.level}}</p>
+                    </div>
+                  </div>
+              
+                  <div class="content">
+                    <div class="abstract">
+                    {{session.abstract}}
+                    <br>
+                    <time datetime="2016-1-1">Duration:- {{session.duration | durationFilter}}</time>
+                  </div>
+                  <div class="voting">
+                      <div ng-click="upvoteSession(session)"><span class="fa fa-chevron-up"></span></div>
+                      <div>{{session.upVoteCount}}</div>
+                      <div ng-click="downvoteSession(session)"><span class="fa fa-chevron-down"></span></div>
+                  </div>
+                </div>
+                </div>
+                
+                </div>
+
+                </a>
+
+            </div>
+
+
+          </div>
+    </main>

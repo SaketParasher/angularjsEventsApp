@@ -13,8 +13,8 @@ eventsApp.factory('EventDetailsService',function EventDetailsService($http,$reso
             return $resource('/data/all').get();
 
         },
-        getSingleEvent: function(){
-            return $resource('/data/:id',{id:'@id'}).get({id:1});
+        getSingleEvent: function(eventId){
+            return $resource('/data/:id',{id:'@id'}).get({id:eventId});
         },
         saveEvent:function(event){
             event.id=999;
